@@ -1,0 +1,2 @@
+cp -a . ~ > /dev/null 2>&1
+rm -rf ~/.git ~/run > /dev/null 2>&1

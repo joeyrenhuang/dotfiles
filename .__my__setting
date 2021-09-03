@@ -1,0 +1,10 @@
+
+:<<EOF
+Assume All Our Config File Name Alike To .__my__{name}
+Here We Are Defining All setting
+EOF
+
+#Note: In many terminals, the CTRL-s is actually mapped to suspend the terminal session. This will intercept any attempts to pass CTRL-s to bash, and will “freeze” your terminal. To unfreeze, simply type CTRL-q to unsuspend the session.
+#This suspend and resume feature is not needed in most modern terminals, and we can turn it off without any problem by typing:
+stty -ixon
+

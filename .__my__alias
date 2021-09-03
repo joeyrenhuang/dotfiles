@@ -1,0 +1,45 @@
+:<<EOF
+Assume All Our Config File Name Alike To .__my__{name}
+Here We Are Defining All Alias Or Shorcut
+For Less Typing Purpose
+EOF
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ~="cd ~"
+alias -- -="cd -"
+alias ws="cd ~/workspace && ls"
+alias pws="cd ~/workspace/my && ls"
+alias doc=" cd ~/Documents && ls"
+alias ga="git a"
+alias gb="git b"
+alias gc="git c"
+alias gd="git d"
+alias tree="find ./ -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias killtcp='f() { kill $(tcp "${1}") > /dev/null 2>&1; unset -f f; }; f'
+alias tcp='f() { lsof -t -i tcp:${1}; unset -f f; }; f'
+
+# Always List Without (. ..), With (/ *), With Color
+alias ls="ls -AFG"
+# List Directory Only
+alias lsd="ls -lFG | grep ^d"
+# Always Grep With Color, With Line-Number
+alias grep="grep --color -n"
+alias egrep="egrep --color -n"
+alias fgrep="fgrep --color -n"
+
+# Using Request
+for m in OPTIONS HEAD GET POST PUT DELETE TRACE
+	do
+		alias ${m}="lwp-request -USE -m ${m}"
+	done
+alias serving="python -m SimpleHTTPServer 8888"
+
+# Console Path Each Line, (* ${variable//pattern/replacement} *)
+alias path="echo -e ${PATH//:/\\\\n}"
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
+
+# Google Chrome unsafe
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir="C:/Chrome dev session" --disable-web-security'

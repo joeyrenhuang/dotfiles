@@ -1,0 +1,99 @@
+:<<EOF
+Assume All Our Config File Name Alike To .__my__{name}
+Here We Are Defining All functions
+For functional use
+EOF
+
+:<<EOF
+name: substr
+args: from:to
+for: cut a string from [from] to [to]
+examples:
+	substr : str
+	substr :5 str
+	substr :-5 str
+	substr -8:-5 str
+	echo str | substr :-5
+EOF
+substr() {
+	local input fromto from to
+	from=0
+	if [[ ${1} = *:* ]]; then
+		fromto=${1}
+		input=${2}
+	elif [[ ${2} = *:* ]]; then
+		fromto=${2}
+		input=${1}
+	fi
+	if [ -z $input ]; then
+		read input
+	fi
+	to=${#input}
+	if [ $fromto ]; then
+		local IFS=:
+		read -r -a fromto <<< "$fromto"
+		if [ ${fromto[0]} ]; then from=${fromto[0]}; fi
+		if [ ${fromto[1]} ]; then to=${fromto[1]}; fi
+	fi
+	if (( $from < 0 )); then from=$(( $from - 1 + ${#input} ));fi
+	if (( $to < 0 )); then to=$(( $to - 1 + ${#input} ));fi
+	to=$(( $to - $from + 1 ))
+	echo ${input:$from:$to};
+}
+:<<EOF
+name: cd
+args:
+for: overwrite builtin cd, accept file and pipe; execute ls after cd
+err: NOT ABLE ACCHIEVE IN TERMINAL
+EOF
+cda() {
+	local p
+	p=${1}
+	if [ -z $p ]; then
+		read p
+	fi
+	if [ -e $p ] && [ -f $p ]; then
+		p=`dirname $p`
+	fi
+	cd $p && ls 
+}
+mkdircd()
+{
+    mkdir -p -- "$1" &&
+      cd -P -- "$1"
+}
+:<<EOF
+for: watch some directory and execute some command at background
+EOF
+watch() {
+  local pid dir cmd input_path ip ic
+  #init
+  pid=0 dir="." cmd="echo"
+  if [ -z ${1} ]; then
+    read -rep $'enter the path you want to watch....   ' ip
+    read -rep $'enter the command you want to run after files changed....   ' ic
+    if [[ ! -z ${ip} ]]; then dir=${ip}; else echo "defaut as current directory "; fi
+    if [[ ! -z ${ic} ]]; then cmd=${ic}; fi
+  else 
+    if [[ -z ${2} ]]; then
+      cmd=${1}
+    else
+      echo "Watching files in current directory..."
+      cmd=${2}
+    fi
+  fi
+  echo "Watching..."
+  while true
+  do
+    sleep 3
+    c=`find ${dir} -maxdepth 1 -ctime -3s`
+    if [[ ! -z ${c} ]]; then
+      if [[ ! -z $pid && ! -z $(jobs -p) ]]; then kill -9 $pid; fi
+      wait
+      eval "${cmd} &"
+      pid=$!
+      echo "Watching..."
+    fi
+  done
+}
+
