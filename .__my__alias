@@ -12,13 +12,15 @@ alias -- -="cd -"
 alias ws="cd ~/workspace && ls"
 alias pws="cd ~/workspace/my && ls"
 alias doc=" cd ~/Documents && ls"
+alias dot="cd ~/workspace/my/Bash/dotfiles && . run"
 alias ga="git a"
 alias gb="git b"
 alias gc="git c"
 alias gd="git d"
 alias tree="find ./ -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias killtcp='f() { kill $(tcp "${1}") > /dev/null 2>&1; unset -f f; }; f'
+alias tcpkill='f() { kill $(tcp "${1}") > /dev/null 2>&1; unset -f f; }; f'
 alias tcp='f() { lsof -t -i tcp:${1}; unset -f f; }; f'
+alias tcpall="lsof -iTCP -sTCP:LISTEN -P -n"
 
 # Always List Without (. ..), With (/ *), With Color
 alias ls="ls -AFG"
@@ -34,7 +36,7 @@ for m in OPTIONS HEAD GET POST PUT DELETE TRACE
 	do
 		alias ${m}="lwp-request -USE -m ${m}"
 	done
-alias serving="python -m SimpleHTTPServer 8888"
+alias serving="python -m SimpleHTTPServer 9000"
 
 # Console Path Each Line, (* ${variable//pattern/replacement} *)
 alias path="echo -e ${PATH//:/\\\\n}"

@@ -31,7 +31,7 @@ substr() {
 	to=${#input}
 	if [ $fromto ]; then
 		local IFS=:
-		read -r -a fromto <<< "$fromto"
+		read -r -a fromto < "$fromto"
 		if [ ${fromto[0]} ]; then from=${fromto[0]}; fi
 		if [ ${fromto[1]} ]; then to=${fromto[1]}; fi
 	fi
@@ -66,10 +66,10 @@ mkdircd()
 for: watch some directory and execute some command at background
 EOF
 watch() {
-  local pid dir cmd input_path ip ic
+  local dir cmd input_path ip ic
   #init
-  pid=0 dir="." cmd="echo"
-  if [ -z ${1} ]; then
+  dir="." cmd="echo"
+  if [[ -z ${1} ]]; then
     read -rep $'enter the path you want to watch....   ' ip
     read -rep $'enter the command you want to run after files changed....   ' ic
     if [[ ! -z ${ip} ]]; then dir=${ip}; else echo "defaut as current directory "; fi
@@ -82,18 +82,17 @@ watch() {
       cmd=${2}
     fi
   fi
-  echo "Watching..."
-  while true
+  eval "${cmd} &"
+  trap "cancel=1" SIGINT
+  while [[ -z ${cancel} ]]
   do
-    sleep 3
-    c=`find ${dir} -maxdepth 1 -ctime -3s`
+    read -t 2
+    c=`find ${dir} -maxdepth 1 -ctime -2s`
     if [[ ! -z ${c} ]]; then
-      if [[ ! -z $pid && ! -z $(jobs -p) ]]; then kill -9 $pid; fi
-      wait
+      existcmd=`jobs -p "$cmd"`
+      if [[ ! -z ${existcmd} ]]; then pkill -P $existcmd && sleep 1; fi
       eval "${cmd} &"
-      pid=$!
-      echo "Watching..."
     fi
   done
+  pkill -P $$
 }
-
