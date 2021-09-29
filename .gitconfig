@@ -1,13 +1,13 @@
 [include]
   path = .__my.gitconfig
-[includeIf "gitdir:~/workspace/sf/"]
-    path = ~/workspace/sf/.sfgitconfig
 [user]
-    name = joey.r.h
-    email = joey.ren.huang@gmail.com
+  name = joey.r.h
+  email = joey.ren.huang@gmail.com
 [http]
 	sslVerify = false
   proxy = http://127.0.0.1:9999
 [https]
   sslVerify = false
   proxy = http://127.0.0.1:9999
+[includeIf "gitdir:~/workspace/sf/"]
+  path = ~/workspace/sf/.sfgitconfig

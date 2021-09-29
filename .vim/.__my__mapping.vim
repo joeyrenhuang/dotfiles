@@ -49,7 +49,10 @@ inoremap [ []<Esc>i
 nnoremap <leader>d mm%x`mx
 nnoremap <leader>b :bn<cr>
 nnoremap <leader>B :bp<cr>
-
+nnoremap <leader>f :cn<cr>
+nnoremap <leader>F :cp<cr>
+nnoremap <leader>ff :Ff<space>
+command! -nargs=+ -complete=file -bar Ff vim <args> | cw
 " expand current window both direction by: new a tab
 nnoremap <C-w>O :tabnew%<cr>
 " expand current window both direction by: <C-w>_ and <C-w>|

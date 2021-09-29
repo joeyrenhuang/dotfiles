@@ -47,6 +47,7 @@
 	ft = "!f() { git describe --always --contains $1; }; f"
 
 	# Find commits by source code
+
 	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
 
 	# Find commits by commit message
@@ -155,6 +156,9 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+  # This means when you issue git merge --log <branch>, it'll force the branch description into the stock merge commit message. This has a lot of uses. For example, this is how I track topic branch release notes at my employer
+  # git config branch.<branch>.description -o git branch --edit-description
+  branchdesc = true
 
 [push]
 
