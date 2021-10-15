@@ -1,6 +1,9 @@
 filetype off
 call plug#begin('~/.vim/plugged')
 
+" If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
+
 " Make sure you use single quotes
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'

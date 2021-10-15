@@ -52,6 +52,7 @@ nnoremap <leader>B :bp<cr>
 nnoremap <leader>f :cn<cr>
 nnoremap <leader>F :cp<cr>
 nnoremap <leader>ff :Ff<space>
+nnoremap <leader>md :MarkdownPreview<cr>
 command! -nargs=+ -complete=file -bar Ff vim <args> | cw
 " expand current window both direction by: new a tab
 nnoremap <C-w>O :tabnew%<cr>
