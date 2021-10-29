@@ -3,6 +3,8 @@ call plug#begin('~/.vim/plugged')
 
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
+" Simple wrapper over curl and http syntax highlighting
+Plug 'nicwest/vim-http.git'
 
 " Make sure you use single quotes
 Plug 'ctrlpvim/ctrlp.vim'

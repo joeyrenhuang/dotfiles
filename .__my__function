@@ -1,3 +1,4 @@
+#!/bin/bash
 :<<EOF
 Assume All Our Config File Name Alike To .__my__{name}
 Here We Are Defining All functions
@@ -31,7 +32,7 @@ substr() {
 	to=${#input}
 	if [ $fromto ]; then
 		local IFS=:
-		read -r -a fromto < "$fromto"
+		read -r -a fromto <<< "$fromto"
 		if [ ${fromto[0]} ]; then from=${fromto[0]}; fi
 		if [ ${fromto[1]} ]; then to=${fromto[1]}; fi
 	fi
@@ -118,4 +119,3 @@ watch() {
   done
   pkill -P $$
 }
-

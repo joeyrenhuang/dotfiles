@@ -1,7 +1,15 @@
 " run some commands automatically
 
+" quick new file with templates
+augroup templates
+  au!
+  " read in templates files
+  autocmd BufNewFile * silent! 0r ~/.vim/template/%:e.tpl
+augroup END
+
 " if filetype not determined, set it to be bash
 autocmd BufEnter * if &filetype == "" | setlocal ft=sh | endif
+autocmd BufEnter *.tpl setlocal fy=javascript
 
 " create a self-clearing autocommand group called 'qf'
 aug quickfix

@@ -5,7 +5,7 @@ Assume ourself-defined configs are alike .__my__
 EOF
 OPWD=$PWD
 cd ~
-for cfg in `ls -a .__my__*`
+for cfg in `ls -a .__*my__*`
 	do 
 		[ -e $cfg ] && [ -f $cfg ] && [ -s $cfg ] && . $cfg && echo "(Bourne-Again SHell)${cfg} loaded."
 	done
