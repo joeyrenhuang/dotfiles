@@ -9,6 +9,14 @@ augroup END
 
 " if filetype not determined, set it to be bash
 autocmd BufEnter * if &filetype == "" | setlocal ft=sh | endif
+autocmd BufEnter *.tsx setlocal ft=javascript
+
+" open external and exit
+augroup openexit
+  au!
+  autocmd BufRead *.png,*.jpg,*.jpeg !open %
+  autocmd BufReadPost	*.png,*.jpg,*.jpeg e#
+augroup END
 autocmd BufEnter *.tpl setlocal fy=javascript
 
 " create a self-clearing autocommand group called 'qf'
