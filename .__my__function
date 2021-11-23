@@ -119,3 +119,13 @@ watch() {
   done
   pkill -P $$
 }
+new() {
+  osascript -e "tell app \"Terminal\" to do script \"$@\""
+}
+msg() {
+  osascript \
+    -e "on run(argv)" \
+    -e "return display notification item 1 of argv" \
+    -e "end" \
+    -- "$@"
+}
