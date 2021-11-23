@@ -1,6 +1,8 @@
 "**************************
 " This is a vim config file
 "**************************
+"set acd "Auto change working path, see :pwd
+" set autochdir
 set clipboard=unnamed " Use copy to p
 let g:netrw_liststyle=3 "Set Folder disply as tree, use i to switch to see others
 "*************************
@@ -65,9 +67,8 @@ set title " Set the window’s title, reflecting the file currently being edited
 " set foldmethod=indent " Fold based on indention levels.
 " set foldnestmax=3 " Only fold up to three nested levels.
 " set nofoldenable " Disable folding by default.
+" set foldlevelstart=3 " default fold 3 nested levels.
 set foldmethod=syntax
-" set foldlevel=0
-" let javaScript_fold=1
 "*************************
 " Miscellaneous Options
 "*************************
