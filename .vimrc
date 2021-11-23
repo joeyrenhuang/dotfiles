@@ -3,7 +3,7 @@
 "**************************
 function! LoadCfg()
   for cfg in systemlist('cd ~/.vim && ls -a .__my__*')
-    echo 'vim config file loading: 'cfg
+    " echo 'vim config file loading: 'cfg
     execute 'source' . '~/.vim/'.cfg
   endfor 
 endfunction

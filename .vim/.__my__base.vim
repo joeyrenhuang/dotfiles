@@ -82,7 +82,7 @@ set nomodeline " Ignore file’s mode lines; use vimrc configurations instead.
 set noswapfile " Disable swap files.
 set nobackup
 set nrformats-=octal " Interpret octal as decimal when incrementing numbers.
-set shell " The shell used to execute commands.
+" set shell " The shell used to execute commands.
 set spell " Enable spellchecking.
 set wildignore+=.pyc,.swp " Ignore files matching these patterns when opening files based on a glob pattern.
 

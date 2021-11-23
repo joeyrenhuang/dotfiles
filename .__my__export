@@ -2,6 +2,10 @@
 Assume All Our Config File Name Alike To .__my__{name}
 Here We Are Defining All Export
 EOF
+# GPG usage
+# what's tty ? terminal ? console ? shell'
+# refer: https://unix.stackexchange.com/questions/470860/how-to-make-tty-work-in-bash-profile
+export GPG_TTY="$(tty)"
 
 # Make Vim The Default Editor
 export EDITOR="vim"
