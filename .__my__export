@@ -2,13 +2,17 @@
 Assume All Our Config File Name Alike To .__my__{name}
 Here We Are Defining All Export
 EOF
+
+# some script write by myself in nodejs or shell
+export PATH="$PATH:$HOME/.bin"
+
 # GPG usage
 # what's tty ? terminal ? console ? shell'
 # refer: https://unix.stackexchange.com/questions/470860/how-to-make-tty-work-in-bash-profile
 export GPG_TTY="$(tty)"
 
 # Make Vim The Default Editor
-export EDITOR="vim"
+export EDITOR="newvi"
 
 # Lwp-request to Https required
 export PERL_LWP_SSL_VERIFY_HOSTNAME=0
