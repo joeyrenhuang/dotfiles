@@ -129,9 +129,9 @@ msg() {
     -e "end" \
     -- "$@"
 }
-newvi() {
+nvi() {
   new "vi $@"
 }
-export -f newvi
+export -f nvi
 export -f new
 export -f msg 

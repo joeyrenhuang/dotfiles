@@ -1,3 +1,4 @@
+hi CurrentLines term=italic,bold cterm=italic ctermbg=yellow ctermfg=grey gui=bold,italic guibg=yellow guifg=grey
 " #f8e4b5
 " #e0c9a6
 "let g:PaperColor_Theme_Options = {

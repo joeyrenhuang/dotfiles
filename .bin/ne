@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-newvi ~/.bin/nodeplayground.js
+nvi ~/.bin/nodeplayground.js

@@ -1,5 +1,9 @@
 " run some commands automatically
 
+" I WANT MAKE SECTION code highlight, and others blur, like a function content
+autocmd CursorMoved * :execute 'match CurrentLines /.*\n.*\%#.*\n.*/'
+autocmd CursorMovedI * :execute 'match CurrentLines /.*\n.*\%#.*\n.*/'
+
 " quick new file with templates
 augroup templates
   au!

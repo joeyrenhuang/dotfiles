@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-newvi ~/.__my__pwd
+nvi ~/.__my__pwd

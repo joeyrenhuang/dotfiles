@@ -12,7 +12,8 @@ export PATH="$PATH:$HOME/.bin"
 export GPG_TTY="$(tty)"
 
 # Make Vim The Default Editor
-export EDITOR="newvi"
+#export EDITOR="code"
+export MYEDITOR="nvi"
 
 # Lwp-request to Https required
 export PERL_LWP_SSL_VERIFY_HOSTNAME=0
