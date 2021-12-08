@@ -160,6 +160,10 @@
   # git config branch.<branch>.description -o git branch --edit-description
   branchdesc = true
 
+[pull]
+
+  ff = only
+
 [push]
 
 	# https://git-scm.com/docs/git-config#git-config-pushdefault

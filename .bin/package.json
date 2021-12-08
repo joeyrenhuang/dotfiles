@@ -1,0 +1,12 @@
+{
+  "name": "node-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodeplayground.js",
+  "scripts": {
+    "env1": "export ENV=env1 && node env1.js",
+    "env2": "export ENV=env2 && node env2.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

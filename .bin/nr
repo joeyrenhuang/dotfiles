@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-~/.bin/nodeplayground.js
+ENV=0  ~/.bin/nodeplayground.js
