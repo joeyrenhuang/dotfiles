@@ -1,4 +1,5 @@
 #!/bin/bash
+# Shell functions are executed in the current shell context; no new process is created to interpret them.
 :<<EOF
 Assume All Our Config File Name Alike To .__my__{name}
 Here We Are Defining All functions
