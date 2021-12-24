@@ -26,7 +26,7 @@ alias gll="git ll"
 alias glll="git lll"
 alias gr="git r"
 alias gs='git s && printf "\n" && eval "git config branch.`git branch --show-current`.description"'
-alias gh='printf "You may encounter ssh problems, make sure close sflink\nssh -T git@github.com\nssh-add -l\nssh-agent bash\nssh-add ~/.ssh/id_rsa\nWrong for git push -f, try git reflog show remotes/origin/master\n"'
+alias gh='printf "You may encounter ssh problems, make sure close sflink\nssh -T git@github.com\nssh-add -l\nssh-agent bash\nssh-add ~/.ssh/id_rsa\nWrong for git push -f, try git reflog show remotes/origin/master\ngit branch -r | awk -Forigin/ !/master|production/{print $2} | xargs git push --delete origin\n"'
 alias tree="find ./ -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias tcpkill='f() { kill $(tcp "${1}") > /dev/null 2>&1; unset -f f; }; f'
 alias tcp='f() { lsof -t -i tcp:${1}; unset -f f; }; f'
@@ -54,4 +54,9 @@ alias path="echo -e ${PATH//:/\\\\n}"
 alias reload="exec ${SHELL} -l"
 
 # Google Chrome unsafe
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir="C:/Chrome dev session" --disable-web-security'
+# alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir="C:/Chrome dev session" --disable-web-security'
+# https://zhuanlan.zhihu.com/p/76237595 [Puppeteer]
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chromedebug="chrome --headless --remote-debugging-port=9222 --disable-gpu"
+alias chromedom="chrome --headless --disable-gpu --dump-dom"
+alias chromescreenshot="chrome --headless --disable-gpu --screenshot"
