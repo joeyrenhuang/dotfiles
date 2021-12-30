@@ -1,6 +1,7 @@
 "**************************
 " This is a vim config file
 "**************************
+
 "set acd "Auto change working path, see :pwd
 " set autochdir
 set clipboard=unnamed " Use copy to p

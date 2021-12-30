@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 " $ brew install vim
 " $ cd ~/.vim/bundle/YouCompleteMe
 " $ python3 install.py --all
-Plug 'git@github.com:ycm-core/YouCompleteMe.git', { 'do': 'brew install cmake go && brew install java && sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk && brew install vim && python3 install.py --all'}
+Plug 'git@github.com:ycm-core/YouCompleteMe.git', { 'do': 'brew install cmake go java vim && sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk && python3 install.py --all'}
 
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
