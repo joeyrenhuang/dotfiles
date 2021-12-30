@@ -46,5 +46,5 @@ export http_proxy=http://127.0.0.1:9999
 export https_proxy=http://127.0.0.1:9999
 
 # npm registry switchs
-export npm_src=https://registry.npmjs.org/
+export npm_src=http://registry.npmjs.org/
 export npm_sf_src=http://artifactory.sf-express.com/artifactory/api/npm/npm/

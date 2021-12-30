@@ -52,6 +52,8 @@ nnoremap <leader>B :bp<cr>
 nnoremap <leader>f :cn<cr>
 nnoremap <leader>F :cp<cr>
 nnoremap <leader>ff :Ff<space>
+nmap <leader>yf <Plug>(YCMFindSymbolInWorkspace)
+nmap <leader>yff <Plug>(YCMFindSymbolInDocument)
 nnoremap <leader>md :MarkdownPreview<cr>
 command! -nargs=+ -complete=file -bar Ff vim <args> | cw
 " expand current window both direction by: new a tab
@@ -59,6 +61,7 @@ nnoremap <C-w>O :tabnew%<cr>
 " expand current window both direction by: <C-w>_ and <C-w>|
 " nnoremap <C-w>m <C-w>_<C-w>\|
 nnoremap <C-w>m :call ToggleWindow()<CR><CR>
+
 function! ToggleWindow()
   let id = 1
   let ids = winnr('$')
