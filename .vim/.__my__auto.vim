@@ -19,7 +19,7 @@ autocmd BufEnter *.tsx setlocal ft=javascript
 augroup openexit
   au!
   autocmd BufRead *.png,*.jpg,*.jpeg !open %
-  autocmd BufReadPost	*.png,*.jpg,*.jpeg e#
+  autocmd BufReadPost	*.png,*.jpg,*.jpeg if expand('#') | e#  | endif
 augroup END
 autocmd BufEnter *.tpl setlocal fy=javascript
 

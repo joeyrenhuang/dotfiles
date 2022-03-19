@@ -1,6 +1,9 @@
 filetype off
 call plug#begin('~/.vim/plugged')
 
+" svelte syntax
+Plug 'git@github.com:evanleck/vim-svelte.git'
+
 " Auto complete when typing
 " $ brew install cmake python go nodejs
 " $ brew install java
