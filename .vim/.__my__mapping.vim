@@ -46,7 +46,7 @@ inoremap " ""<Esc>i
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
-nnoremap <leader>d :vs | Ex<cr>
+nnoremap <leader>d :vs \| Ex<cr>
 nnoremap <leader>b :bn<cr>
 nnoremap <leader>B :bp<cr>
 nnoremap <leader>n :cn<cr>
