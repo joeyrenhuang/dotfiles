@@ -68,50 +68,30 @@ mkdircd()
 for: watch some directory and execute some command at background
 EOF
 watch() {
-  local dir cmd ip ic fls cancel
+  local dir cmd ip ic cancel
   #init
   dir="." cmd="echo"
   if [[ -z ${1} ]]; then
-    read -rep $'enter the path or files you want to watch....   ' ip
+    read -rep $'enter the paths you want to watch....   ' ip
     read -rep $'enter the command you want to run after files changed....   ' ic
     if [[ ! -z ${ip} ]]; then dir=${ip}; else echo "defaut as current directory "; fi
     if [[ ! -z ${ic} ]]; then cmd=${ic}; fi
   else 
     if [[ -z ${2} ]]; then
       cmd=${1}
-    else
       echo "Watching files in current directory..."
+    else
+      dir=${1}
       cmd=${2}
     fi
   fi
   eval "${cmd} &"
   trap "cancel=1" SIGINT
   
-  # if multiple as file
-  local multip
-  for f in $dir
-  do
-    if [ -z $fls ]; then
-      fls=$f;
-      if [ -f $f ]; then 
-        dir="."
-        multip="yes"
-      fi
-    else
-      dir="."
-      multip="yes"
-      fls="${fls}|${f}"
-    fi
-  done
-  if [ -z $multip ]; then
-    fls=""
-  else
-    fls="| grep -E \"${fls}\""
-  fi
   while [[ -z ${cancel} ]]
   do
     read -t 2
-    c=$(eval "find ${dir} -maxdepth 1 -ctime -2s ${fls}")
+    c=$(eval "find ${dir} -ctime -2s -print -quit")
     if [[ ! -z ${c} ]]; then
       existcmd=`jobs -p "$cmd"`
       if [[ ! -z ${existcmd} ]]; then pkill -P $existcmd && sleep 1; fi
@@ -136,3 +116,4 @@ nvi() {
 export -f nvi
 export -f new
 export -f msg 
+

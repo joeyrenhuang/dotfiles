@@ -51,6 +51,8 @@ nnoremap <leader>b :bn<cr>
 nnoremap <leader>B :bp<cr>
 nnoremap <leader>n :cn<cr>
 nnoremap <leader>N :cp<cr>
+" close by ctrl \ + N
+" [i]sert from normal model to command model
 nnoremap <leader>t :vert ter<cr>
 nnoremap <leader>ff :Ff<space>
 nmap <leader>f <Plug>(YCMFindSymbolInWorkspace)

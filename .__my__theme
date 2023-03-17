@@ -115,3 +115,15 @@ export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
+
+_LPS1=$PS1
+export _LPS1
+_SPS1="\[${green}\]\W\[${red}\] \$ \[${reset}\]"
+export _SPS1
+slp() {
+  if [[ "$_LPS1" = "$PS1" ]]; then
+    export PS1=$_SPS1 
+  else
+    export PS1=$_LPS1
+  fi
+}

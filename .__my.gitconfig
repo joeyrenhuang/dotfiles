@@ -9,6 +9,7 @@
   chb = checkout -b
   dfc = diff --check
   e = branch --edit-description
+  zip = zip modified-files.zip $(git ls-files --modified)
 
 	# `git dn $number` shows the diff between the state `$number` revisions ago and the current state.
 	df = !"f() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; f"

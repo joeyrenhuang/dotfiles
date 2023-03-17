@@ -12,8 +12,8 @@ export PATH="$PATH:$HOME/.bin"
 export GPG_TTY="$(tty)"
 
 # Make Vim The Default Editor
-#export EDITOR="code"
-export MYEDITOR="nvi"
+export EDITOR="code"
+#export MYEDITOR="nvi"
 
 # Lwp-request to Https required
 export PERL_LWP_SSL_VERIFY_HOSTNAME=0
@@ -42,8 +42,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # ingore proxy
 export no_proxy=sf-express.com,localhost,npmjs.org
-export http_proxy=http://127.0.0.1:9999
-export https_proxy=http://127.0.0.1:9999
 
 # npm registry switchs
 export npm_src=http://registry.npmjs.org/
