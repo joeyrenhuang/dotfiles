@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# clean local trackings that remote may already deleted
+git fetch -p
+
+# find branch should delete local/remote
+for b in $(git branch -a | sed 's/^*//' | sed 's/^[ ]*remotes\///'  | \grep -vE "HEAD|main|master|release|test"); do
+  days=$1
+  if [ -z "$days" ]; then
+    days=90
+  fi
+  cmt=`git log --since="'$days days ago'" $b`
+
+  if [ -z "$cmt" ]; then
+    count=$((count + 1))
+    if [[ $b == *origin* ]]; then
+      echo "remote: $b"
+      cmd="$cmd git push origin -D $(echo $b | sed 's/^origin\///');"
+    else
+      echo "local: $b"
+      cmd="$cmd git branch -D $b;"
+    fi
+  fi
+done
+
+if [ -z $count ]; then
+  echo -e "\033[1;32mAlready cleaned.\033[0m"
+  exit 0
+fi
+
+msg=$(echo -e "Are you willing to delete listed branches(\033[1;32m$count\033[0m) that over \033[1;31m$days\033[0m days ago ? [ok/any]\n:")
+read -rep "$msg" ok
+if [[ $ok == "ok" ]]; then
+  eval "$cmd"
+else
+  echo "operation canceled"
+fi
+
